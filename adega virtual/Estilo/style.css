@@ -1,0 +1,372 @@
+/* Reset básico
+   - * { box-sizing: border-box; } : inclui padding/border na largura/altura dos elementos.
+   - html, body { height: 100%; } : garante 100% de altura para uso de unidades relativas.
+*/
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+/* Estilos do body
+   - remove margem padrão, define fonte, cor e imagem de fundo que cobre a tela.
+   - background: fixed mantém a imagem fixa ao rolar.
+*/
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url("../imagens/dafont\'s\ bar.jpg.png") center/cover fixed no-repeat;
+    color: #f5f3f3;
+}
+
+/* HEADER
+   - define aparência geral do cabeçalho.
+   - display:flex + align-items:center alinha o conteúdo verticalmente.
+   - position:relative permite posicionar elementos dentro com position:absolute.
+*/
+header {
+    background: #2c2c2c;
+    padding: 18px 24px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 72px;
+}
+
+/* Logo (opcional)
+   - estilos para um elemento .logo dentro do header.
+   - z-index garante sobreposição acima do nav absoluto.
+*/
+header .logo {
+    display: inline-block;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    z-index: 20;
+}
+
+/* Nav centralizada horizontalmente no header
+   - position:absolute + left/top 50% e transform centralizam no header.
+   - display:flex mantém os links lado a lado; white-space evita quebra que empilha os links.
+*/
+header nav {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* Links do nav (visual de botão)
+   - transforma cada <a> em botão visual com padding, fundo semitransparente e borda arredondada.
+   - transition para animação suave no hover.
+*/
+header nav a {
+    display: inline-block;
+    padding: 8px 14px;
+    color: #ffffff;
+    text-decoration: none;
+    background: rgba(255,255,255,0.06);
+    border-radius: 13px;
+    transition: background 0.18s ease, transform 0.12s ease;
+    font-size: 15px;
+}
+
+/* Efeito ao passar o mouse
+   - muda o fundo e aplica leve elevação (translateY).
+*/
+header nav a:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-2px);
+}
+
+/* Banner / hero
+   - área principal com altura relativa à viewport e conteúdo centralizado via flex.
+   - aplica imagem de fundo para o banner.
+   - color: #ffffff : muda o título "Dafont's Bar" para BRANCO.
+*/
+.banner {
+    height: 100vh;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    background: url("../imagens/dafonts bar.jpg.png") center/cover no-repeat;
+}
+
+/* Botões grandes (ex: chamar ação)
+   - classe .btn para botões de call-to-action com padding e cor de destaque.
+*/
+/* Botões grandes (ex: chamar ação)
+   - classe .btn para botões de call-to-action com padding e cor de destaque.
+*/
+.btn {
+    padding: 14px 28px;
+    background: #fd401f;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px; }
+/* Cards / Produtos
+   - estilo dos cards: fundo claro, padding e bordas arredondadas.
+*/
+.produtos .card {
+    background: rgba(255,255,255,0.9);
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Imagens nos cards
+   - largura responsiva com max-width e centralização.
+*/
+.card img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto 12px;
+}
+
+/* Seções específicas (ex: página inicial)
+   - estilos dedicados à seção .inicio.
+*/
+.inicio {
+    color: #fff;
+    text-shadow: 0 0 6px rgba(218, 82, 4, 0.158);
+    padding: 24px;
+}
+
+/* Itens do carrinho
+   - usa flex para distribuir informação (nome, qty, preço) e mantém aparência clara.
+*/
+.carrinho .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.9);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Responsividade simples
+   - para telas menores: o header adapta altura e o nav volta ao fluxo normal (position:static),
+     permitindo quebra de linhas e centralização sem sobreposição.
+*/
+@media (max-width: 720px) {
+    header { 
+        padding: 12px 16px; 
+        height: auto; 
+    }
+    header nav {
+        position: static;
+        transform: none;
+        margin: 12px auto 0;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+    .banner { 
+        height: 60vh; 
+    }
+    .btn { 
+        padding: 12px 18px; 
+    }
+}
+
+/* Esconde o botão "Ver catálogo" laranja no banner
+   - display: none !important : remove completamente o botão da página.
+*/
+.banner .btn {
+    display: none !important;
+}
+
+
+
+
+
+
+
+/* PÁGINA DE PRODUTOS */
+
+
+
+
+
+
+
+
+
+/* Grid uniforme: cards todos com mesma altura e alinhados em linha */
+.produtos-inner { max-width: 1200px; margin: 0 auto; padding: 18px; background: transparent; }
+
+.produtos .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* várias colunas responsivas */
+  gap: 20px;
+  align-items: stretch; /* garante que os itens ocupem mesma altura */
+  padding: 20px 0;
+}
+
+/* Card ocupa toda a célula do grid e usa flex para distribuir conteúdo */
+.produtos .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;            /* chave: faz todos terem mesma altura */
+  box-sizing: border-box;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+  text-align: center;
+}
+
+/* imagem com tamanho fixo para uniformidade */
+.produtos .card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+/* corpo do card expande para preencher espaço */
+.produtos .card .card-body {
+  flex: 1 1 auto; /* ocupa espaço disponível */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* footer fica sempre alinhado embaixo */
+.produtos .card .card-footer {
+  margin-top: 10px;
+  flex-shrink: 0;
+}
+
+/* estilos internos */
+.produtos .card h3 { margin: 6px 0; font-size: 1rem; color:#111; }
+.produtos .card .descricao { color:#555; font-size:0.95rem; margin:6px 0; }
+.produtos .card .preco { color:#fd401f; font-weight:700; margin-top:8px; }
+
+/* botão padrão */
+.produtos .card .btn.add-to-cart {
+  padding: 10px 14px;
+  background:#fd401f;
+  color:#fff;
+  border-radius:6px;
+  border:none;
+  cursor:pointer;
+}
+
+/* responsividade: reduz colunas automaticamente */
+@media (max-width: 900px) {
+  .produtos .grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+}
+@media (max-width: 480px) {
+  .produtos .grid { grid-template-columns: 1fr; }
+}
+.carrinho-container {
+    width: 80%;
+    margin: auto;
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+.item {
+    margin-bottom: 15px;
+}
+
+.remover {
+    padding: 8px 15px;
+    background: red;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.qtd {
+    width: 50px;
+    margin: 5px 0;
+}
+/* Estilos para a seção que contém os botões de pagamento */
+.botoes-metodo-pagamento {
+    /* Usa Flexbox para colocar os botões lado a lado */
+    display: flex; 
+    
+    /* Cria um espaçamento uniforme entre os itens (os botões) */
+    gap: 15px; 
+    
+    /* Adiciona uma margem abaixo da linha de botões para separar do conteúdo seguinte */
+    margin-bottom: 25px; 
+    
+    /* Ajusta para que a linha de botões não quebre em telas pequenas */
+    flex-wrap: wrap; 
+}
+
+/* Opcional: Estilo para o botão "Limpar Carrinho" */
+/* Se ele estiver colado nos botões de pagamento, use esta margem */
+#limpar {
+    margin-top: 15px; 
+}
+
+/* Opcional: Se quiser dar um visual uniforme para os botões de método */
+.btn-metodo {
+    /* Garante que o texto dentro dos botões seja centralizado */
+    text-align: center;
+    /* Faz com que todos os botões tenham a mesma altura */
+    height: 50px; 
+}
+
+/* --- Estilos Gerais para o Formulário de Cartão --- */
+#form-cartao {
+    /* Garante que o formulário ocupe um espaço definido */
+    max-width: 400px; /* Limita a largura do formulário */
+    margin-top: 20px; /* Espaço acima do formulário */
+}
+
+#form-cartao label {
+    display: block; /* Cada label em sua própria linha */
+    margin-bottom: 5px; /* Espaçamento entre o label e o input */
+    font-weight: bold; /* Labels em negrito para destaque */
+    color: #f7f5f5; /* Cor mais escura para os labels */
+}
+
+#form-cartao input[type="text"] {
+    width: 100%; /* Inputs ocupam toda a largura disponível */
+    padding: 10px; /* Espaçamento interno */
+    margin-bottom: 15px; /* Espaço abaixo de cada input */
+    border: 1px solid #ccc; /* Borda suave */
+    border-radius: 5px; /* Cantos arredondados */
+    box-sizing: border-box; /* Garante que padding não aumente a largura total */
+    font-size: 1em; /* Tamanho da fonte */
+}
+
+/* --- Estilos Específicos para Validade e CVV --- */
+.dados-curtos {
+    display: flex; /* Usa Flexbox para colocar Validade e CVV lado a lado */
+    gap: 15px; /* Espaçamento entre os dois campos */
+    margin-bottom: 15px; /* Espaço abaixo do grupo Validade/CVV */
+}
+
+.dados-curtos > div {
+    flex: 1; /* Faz com que cada campo (Validade e CVV) ocupe espaço igual */
+}
+
+/* Estilo para o botão de finalizar compra com cartão */
+#form-cartao .btn-pagar {
+    width: 100%; /* Faz o botão ocupar a largura total do formulário */
+    padding: 12px 20px; /* Aumenta o padding para um botão mais confortável */
+    font-size: 1.1em; /* Fonte um pouco maior */
+    /* Cores e bordas já devem vir do seu .btn global */
+}
