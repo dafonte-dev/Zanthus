@@ -10,7 +10,7 @@ Estou ativamente buscando oportunidades onde a *colaboração, a **excelência t
 
 ## 🔗 Conecte-se Comigo
 
-[![LinkedIn Badge](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](URL_DO_LINKEDIN)
+[![LinkedIn Badge](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/danilo-dafonte-lima-77238431b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app
 [![GitHub Badge](https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](URL_DO_SEU_PERFIL_GITHUB)
 [![Email Badge](https://img.shields.io/badge/-Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:SEU@EMAIL.COM)
 
